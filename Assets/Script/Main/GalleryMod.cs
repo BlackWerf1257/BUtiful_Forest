@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +7,10 @@ public class GalleryMod : MonoBehaviour
 {
     [SerializeField] RawImage rawImg;
     ResourceManage resourceManager;
+    [SerializeField] AREffect arEffect;
+
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +23,6 @@ public class GalleryMod : MonoBehaviour
 
         }
         else Debug.LogError("리소스 오브젝트를 찾기 못함");
-
     }
 
 
@@ -42,13 +44,13 @@ public class GalleryMod : MonoBehaviour
 
         var temp = File.ReadAllBytes(savePath + fileName + ".png");
 
-        Texture2D texture = new Texture2D(0, 0);
+        Texture2D texture = new(0, 0);
         texture.LoadImage(temp);
 
         rawImg.texture = texture;
-        rawImg.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, Screen.currentResolution.height);
-        rawImg.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, Screen.currentResolution.width);
-        //ImageSize(rawImg, 100, 100);
+        //rawImg.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, Screen.currentResolution.height);
+        //rawImg.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, Screen.currentResolution.width);
+        ImageSize(rawImg, 1080, 1300);
     }
 
     void ImageSize(RawImage img, float x, float y)

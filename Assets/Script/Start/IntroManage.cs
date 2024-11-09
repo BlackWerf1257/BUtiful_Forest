@@ -1,10 +1,7 @@
-using System;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
-using Vuforia;
-using Image = UnityEngine.UI.Image;
+using UnityEngine.UI;
 
 public class IntroManage : MonoBehaviour
 {
@@ -20,7 +17,7 @@ public class IntroManage : MonoBehaviour
 
     void Start()
     {
-      
+
         ApplyFade();
     }
     private void Awake()
