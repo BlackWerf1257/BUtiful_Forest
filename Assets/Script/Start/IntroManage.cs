@@ -2,6 +2,7 @@ using System;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 using Vuforia;
 using Image = UnityEngine.UI.Image;
 
@@ -9,6 +10,8 @@ public class IntroManage : MonoBehaviour
 {
     [SerializeField] private Image logoImg;
     [SerializeField] private TextMeshProUGUI prNameTxt;
+    [SerializeField] Image background;
+
 
 
     // Start is called before the first frame update
@@ -19,6 +22,11 @@ public class IntroManage : MonoBehaviour
     {
       
         ApplyFade();
+    }
+    private void Awake()
+    {
+        background.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, Screen.currentResolution.height);
+        background.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, Screen.currentResolution.width);
     }
 
     private void ApplyFade()

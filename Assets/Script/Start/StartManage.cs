@@ -1,30 +1,23 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-#if !UNITY_EDITOR && UNITY_ANDROID
-using( AndroidJavaClass ajc = new AndroidJavaClass( "com.yasirkula.unity.NativeGalleryMediaPickerFragment" ) )
-	ajc.SetStatic<bool>( "GrantPersistableUriPermission", true );
-#endif
+using System.Collections;
+
 using System.IO;
 
 public class StartManage : MonoBehaviour
 {
    [SerializeField] private ScrollRect creditsObj;
    [SerializeField] private GameObject parentObj;
-   
-   
-   
-   public void StartEvent(int idx)
+   [SerializeField] ResourceManage ResourceManage;
+
+
+    public void StartEvent(int idx)
    {
       switch (idx)
       {
          case 0: SceneManager.LoadScene("Main_Cam"); break;
-         case 1:
-         {
-               ;
-            //SceneManager.LoadScene("Main_Gallery");
-
-         } break;
+         case 1: LoadFile(); break;
       }
    }
    public void Quit() => Application.Quit();
@@ -47,26 +40,32 @@ public class StartManage : MonoBehaviour
    
    
    #region Gallery
-
-   void CheckPermission()
-   {
-      //
-      NativeGallery.Permission permissions = new NativeGallery.Permission();
-      if (permissions == NativeGallery.Permission.Granted)
-         Debug.Log("Permission granted");
-      //NativeGallery.Permission permission = 
-   }
-
    void LoadFile()
    {
       NativeGallery.GetImageFromGallery(file =>
       {
-         FileInfo fileInfo = new FileInfo(file);
-         //용량 제한
-         if (fileInfo.Length > 10) return;
-         
-      });
-   }
+          if (string.IsNullOrEmpty(file))
+          {
+              Debug.LogWarning("파일을 선택하지 않았습니다.");
+              return;
+          }
 
-   #endregion
+          FileInfo fileInfo = new FileInfo(file);
+         //용량 제한 10mb
+         if (fileInfo.Length > 10000000) return;
+
+          if (!string.IsNullOrEmpty(file))
+          {
+              Debug.LogWarning("경로: " + file);
+              ResourceManage.imgPath = file;
+              SceneManager.LoadScene("Main_Gallery");
+          }
+          else
+          {
+              Debug.LogWarning("10mb 이하 사진으로 선택해주세요");
+          }
+      });
+
+    }
+    #endregion
 }
