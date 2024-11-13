@@ -1,6 +1,9 @@
 using System.Collections;
 using System.IO;
+using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GalleryMod : MonoBehaviour
@@ -9,20 +12,36 @@ public class GalleryMod : MonoBehaviour
     ResourceManage resourceManager;
     [SerializeField] AREffect arEffect;
 
+    [Header("ÌÅ¨Í∏∞ Ï†ïÎ†¨Ìï† UI")]
+    [SerializeField] RectTransform[] uiContents;
 
 
 
     // Start is called before the first frame update
     void Start()
-    {
+    { 
+        if (Application.isEditor)
+        {
+            foreach (var item in uiContents)
+            {
+                item.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 1920);
+                item.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 1080);
+            }
+        }
+        else
+        {
+            foreach (var item in uiContents)
+            {
+                item.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, Screen.currentResolution.height);
+                item.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, Screen.currentResolution.width);
+            }
+        }
+        ;
+        
         resourceManager = GameObject.FindObjectOfType<ResourceManage>();
         if (resourceManager != null)
-        {
-            Debug.LogWarning("∞Ê∑Œ : " + resourceManager.imgPath);
             StartCoroutine(LoadImg(resourceManager.imgPath));
-
-        }
-        else Debug.LogError("∏Æº“Ω∫ ø¿∫Í¡ß∆Æ∏¶ √£±‚ ∏¯«‘");
+        else Debug.LogError("ÌååÏùºÏùÑ Ï∞æÏßÄÎ™ªÌï®");
     }
 
 
@@ -33,7 +52,7 @@ public class GalleryMod : MonoBehaviour
 
         byte[] fileData = File.ReadAllBytes(path);
         string fileName = Path.GetFileName(path).Split('.')[0];
-        //√ ±‚ ¡ˆ¡§ ¿Ã»ƒ √ﬂ»ƒ ∫“∑Øø¿¥¬ øÎ
+        //ÔøΩ ±ÔøΩ ÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩÔøΩÔøΩ ÔøΩ“∑ÔøΩÔøΩÔøΩÔøΩÔøΩ ÔøΩÔøΩ
         string savePath = Application.persistentDataPath + "/Image";
 
 
@@ -50,15 +69,26 @@ public class GalleryMod : MonoBehaviour
         rawImg.texture = texture;
         //rawImg.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, Screen.currentResolution.height);
         //rawImg.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, Screen.currentResolution.width);
-        ImageSize(rawImg, 1080, 1300);
+        ImageSizeCalculate(rawImg, .3f);
     }
 
-    void ImageSize(RawImage img, float x, float y)
+    void ImageSizeCalculate(RawImage img, float percent)
     {
-        var imgSizeX = img.rectTransform.sizeDelta.x;
+        // ÌôîÎ©¥Ïùò ÌÅ¨Í∏∞ Íµ¨ÌïòÍ∏∞ (Ïòà: ÌôîÎ©¥ ÌÅ¨Í∏∞: 1920 x 1080)
+        float screenWidth = Screen.width;
+        float screenHeight = Screen.height;
+
+        // ÌôîÎ©¥Ïùò 3-40% ÌÅ¨Í∏∞ ÎπÑÏú® Í≥ÑÏÇ∞
+        float targetHeight = screenHeight * percent;
+        
+        img.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, targetHeight);
+        img.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, screenWidth);
+        
+        
+        /*var imgSizeX = img.rectTransform.sizeDelta.x;
         var imgSizeY = img.rectTransform.sizeDelta.y;
 
-        if (x / y > imgSizeX / imgSizeY) //ºº∑Œ∞° ¥ı ±Ê ∞ÊøÏ
+        if (x / y > imgSizeX / imgSizeY) //ÔøΩÔøΩÔøΩŒ∞ÔøΩ ÔøΩÔøΩ ÔøΩÔøΩ ÔøΩÔøΩÔøΩ
         {
             img.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, y); // imgY * y / imgY
             img.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, imgSizeX * (y / imgSizeY));
@@ -67,7 +97,31 @@ public class GalleryMod : MonoBehaviour
         {
             img.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, x);
             img.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, imgSizeY * (x / imgSizeX));
-        }
+        }*/
     }
     #endregion
+    
+    #region Í≥µÏö© Ïù¥Î≤§Ìä∏
+    //Ïù¥Î≤§Ìä∏ Î≤ÑÌäºÏùÑ ÎàåÎ†ÄÏùÑÎïå ÎÇ¥Î†§Í∞à Ïò§Î∏åÏ†ùÌä∏
+    [SerializeField] private Transform eventListObj;
+    [Tooltip("Ï∫êÎ¶≠ÌÑ∞ ÌÖåÎßà Ìà¨Î™ÖÎèÑ Ìö®Í≥º Í∞Å Ïù¥Î≤§Ìä∏ Ïò§Î∏åÏ†ùÌä∏")]
+    [SerializeField] private RectTransform[] eventRect;
+
+    private int movedObjIdx = 0;
+    
+    public void EnterEvent(int index)
+    {
+        movedObjIdx = index;
+        eventListObj.DOLocalMoveY(-500, .5f).OnComplete(() => eventRect[index].DOLocalMoveY(0, .5f));
+        ;
+    }
+    #endregion
+
+    public void BackToMain(bool isMain)
+    {
+        if(isMain)
+            SceneManager.LoadScene("Start");
+        else
+            eventRect[movedObjIdx].DOLocalMoveY(-500f, .5f).OnComplete(() => eventListObj.DOLocalMoveY(0, .5f));
+    }
 }

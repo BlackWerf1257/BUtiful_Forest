@@ -63,7 +63,8 @@ public class StartManage : MonoBehaviour
                 Debug.LogWarning("10mb 이하 사진으로 선택해주세요");
             }
         });
-
+        
+        DontDestroyOnLoad(ResourceManage.gameObject);
     }
     #endregion
 }

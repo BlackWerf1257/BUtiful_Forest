@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class AREffect : MonoBehaviour
 {
-    #region AR ¹öÆ° À§Ä¡
+    #region AR ë²„íŠ¼
     [SerializeField] RectTransform EffectStartBtn;
     [SerializeField] RectTransform EffectSelectBtn;
     #endregion
@@ -20,11 +20,11 @@ public class AREffect : MonoBehaviour
     }
 
 
-    #region Ä³¸¯ÅÍ
+    #region AR ì˜¤ë¸Œì íŠ¸ ë°°ì¹˜
     List<GameObject> ARObj = new();
     List<Renderer> ARRendObj = new();
 
-    [Header("Ä³¸¯ÅÍ ¸®½ºÆ®")]
+    [Header("ìŠ¤í‹°ì»¤ ëª¨ìŒ")]
     [SerializeField] private GameObject[] characterArray = new GameObject[3];
 
     void CharacterEvent(int charcterIdx)
@@ -35,14 +35,14 @@ public class AREffect : MonoBehaviour
     }
     #endregion
 
-    #region Å×¸¶
+    #region í…Œë§ˆ
     void ThemeEvent()
     {
 
     }
     #endregion
 
-    #region Åõ¸íµµ
+    #region íˆ¬ëª…ë„
     [SerializeField] Slider visSlider;
     void VisibilityEvent()
     {
@@ -57,8 +57,8 @@ public class AREffect : MonoBehaviour
     }
     #endregion
 
-    #region È¿°ú
-    [Header("ÆÄÆ¼Å¬ ¸®½ºÆ®")]
+    #region íš¨ê³¼
+    [Header("íš¨ê³¼")]
     [SerializeField] private GameObject[] ParticleArray = new GameObject[4];
     List<GameObject> ParticleList = new();
     List<Renderer> ParticleRendList = new();
@@ -69,7 +69,7 @@ public class AREffect : MonoBehaviour
         ParticleRendList.Add(newEffect.GetComponent<Renderer>());
     }
     #endregion
-    #endregion
+#endregion
 
 
 
