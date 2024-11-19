@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 5084c9964bbb0184ca2009984bd4253b
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 625f186215c104763be7675aa2d941aa, type: 3}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 13328
+  packageName: Butterfly Effect
+  packageVersion: 1.2
+  assetPath: Assets/Wao3DStudio/Models/Butterfly Effect/URP/Shader/Butterfly Wings.shadergraph
+  uploadId: 527783

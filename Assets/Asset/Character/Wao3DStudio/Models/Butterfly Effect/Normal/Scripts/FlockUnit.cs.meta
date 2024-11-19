@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: fc6470b2a4905f640aebf9c123836451
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 13328
+  packageName: Butterfly Effect
+  packageVersion: 1.2
+  assetPath: Assets/Wao3DStudio/Models/Butterfly Effect/Normal/Scripts/FlockUnit.cs
+  uploadId: 527783

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 5f1bde04349661e48b44bd7212718116
+timeCreated: 1494107860
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 13328
+  packageName: Butterfly Effect
+  packageVersion: 1.2
+  assetPath: Assets/Wao3DStudio/Models/Butterfly Effect/Normal/Shaders/Butterfly_Effect_MultiColor.shader
+  uploadId: 527783
