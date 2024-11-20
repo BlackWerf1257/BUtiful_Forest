@@ -23,9 +23,9 @@ public class AREffect : MonoBehaviour
         GameObject newCharacter = GameObject.Instantiate(characterArray?[charcterIdx]);
         if (newCharacter != null)
         {
-            newCharacter.transform.position = new Vector3(500, 150, 0);
-            newCharacter.transform.rotation = new Quaternion(0, -90, -90,0);
-            newCharacter.transform.localScale = Vector3.one * 5000;
+            newCharacter.transform.localPosition = new Vector3(0, 0, 0);
+            newCharacter.transform.localRotation = new Quaternion(0, 90, 0,90);
+            newCharacter.transform.localScale = Vector3.one * 2000;
             newCharacter.transform.SetParent(chracterParentObj);
             ARObj.Add(newCharacter);
             ARRendObj.Add(newCharacter.GetComponent<Renderer>());
@@ -45,10 +45,15 @@ public class AREffect : MonoBehaviour
     [SerializeField] Slider visSlider;
     public void VisibilityEvent()
     {
-        color.a = visSlider.value;
-        
+        //color.a = visSlider.value;
+
         foreach (Renderer rendVar in ARRendObj)
+        {
+            Color c = rendVar.material.color;
+            c.a = visSlider.value;
             rendVar.material.color = color;
+        }
+
         foreach (Renderer rendVar in ParticleRendList)
             rendVar.material.color = color;
     }
