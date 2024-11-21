@@ -9,6 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Butterfly_Wings_01
   m_Shader: {fileID: 4800000, guid: b1de9171b9a1e5a4caac76dd5279aaef, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 5
@@ -17,6 +19,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -70,7 +73,7 @@ Material:
     - _ColorB: {r: 0.62149215, g: 0.6544118, b: 0.057742234, a: 1}
     - _ColorG: {r: 0.55496955, g: 0.83823526, b: 0.10477941, a: 1}
     - _ColorR: {r: 0.5441177, g: 0.0040008365, b: 0.0040008365, a: 1}
-    - _DiffuseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _DiffuseColor: {r: 1, g: 1, b: 1, a: 0}
     - _SpecColor: {r: 0.4852941, g: 0.4852941, b: 0.4852941, a: 1}
     - _TintColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
   m_BuildTextureStacks: []

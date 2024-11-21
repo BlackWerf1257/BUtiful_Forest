@@ -14,7 +14,7 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     { 
-        if (Application.isEditor)
+        /*if (Application.isEditor)
         {
             foreach (var item in uiContents)
             {
@@ -29,7 +29,7 @@ public class UIManager : MonoBehaviour
                 item.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, Screen.currentResolution.height);
                 item.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, Screen.currentResolution.width);
             }
-        }
+        }*/
     }
 
 

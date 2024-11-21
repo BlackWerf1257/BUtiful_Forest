@@ -14,21 +14,34 @@ public class AREffect : MonoBehaviour
     [SerializeField] private GameObject[] characterArray = new GameObject[3];
 
     [SerializeField] private Renderer rend;
-    private Color color;
 
-    private void Start() => color = rend.material.color;
+    //private void Start() => color = rend.material.color;
 
     public void CharacterEvent(int charcterIdx)
     {
         GameObject newCharacter = GameObject.Instantiate(characterArray?[charcterIdx]);
         if (newCharacter != null)
         {
-            newCharacter.transform.localPosition = new Vector3(0, 0, 0);
-            newCharacter.transform.localRotation = new Quaternion(0, 90, 0,90);
-            newCharacter.transform.localScale = Vector3.one * 2000;
             newCharacter.transform.SetParent(chracterParentObj);
             ARObj.Add(newCharacter);
             ARRendObj.Add(newCharacter.GetComponent<Renderer>());
+            
+            newCharacter.transform.rotation = Quaternion.Euler(0, -90, 0);
+
+            switch (charcterIdx)
+            {
+                case 0:
+                {
+                    newCharacter.transform.localScale = Vector3.one * 12000;
+                    newCharacter.transform.localPosition = new Vector3(800, -300, 2000);
+                }  break;
+                case 1:
+                {
+                    newCharacter.transform.localScale = Vector3.one * 400;
+                    newCharacter.transform.localPosition = new Vector3(800, 400, 2000);
+                    
+                } break;
+            }
         }
         else Debug.LogError("캐릭터가 존재하지않습니다");
     }
@@ -45,17 +58,19 @@ public class AREffect : MonoBehaviour
     [SerializeField] Slider visSlider;
     public void VisibilityEvent()
     {
-        //color.a = visSlider.value;
-
-        foreach (Renderer rendVar in ARRendObj)
+        foreach (var rendVar in ARRendObj)
         {
-            Color c = rendVar.material.color;
-            c.a = visSlider.value;
-            rendVar.material.color = color;
+            Color characterColor = rendVar.material.color;
+            characterColor.a = visSlider.value;
+            rendVar.material.color = characterColor;
         }
 
         foreach (Renderer rendVar in ParticleRendList)
-            rendVar.material.color = color;
+        {
+            Color particleColor = rendVar.material.color;
+            particleColor.a = visSlider.value;
+            rendVar.material.color = particleColor;
+        }
     }
     #endregion
 
