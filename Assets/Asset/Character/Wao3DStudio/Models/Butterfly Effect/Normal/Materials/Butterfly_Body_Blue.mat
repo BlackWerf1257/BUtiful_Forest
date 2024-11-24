@@ -67,6 +67,6 @@ Material:
     - _ColorB: {r: 0.5735294, g: 0.029519891, b: 0.10830736, a: 1}
     - _ColorG: {r: 0, g: 0.5460953, b: 0.6544118, a: 1}
     - _ColorR: {r: 0.58823526, g: 0.21250449, b: 0.008650526, a: 1}
-    - _DiffuseColor: {r: 0, g: 0.72206545, b: 1, a: 1}
+    - _DiffuseColor: {r: 0, g: 0.72206545, b: 1, a: 0}
     - _SpecColor: {r: 0.5735294, g: 0.5735294, b: 0.5735294, a: 1}
   m_BuildTextureStacks: []

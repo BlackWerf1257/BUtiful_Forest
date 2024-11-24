@@ -1,6 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -8,12 +9,15 @@ public class UIManager : MonoBehaviour
 
     [Header("크기 정렬할 UI")]
     [SerializeField] RectTransform[] uiContents;
+    [SerializeField] CanvasScaler canvasScaler;
 
 
 
     // Start is called before the first frame update
     void Start()
     { 
+        canvasScaler.referenceResolution = new Vector2(Screen.width, Screen.height);
+        
         /*if (Application.isEditor)
         {
             foreach (var item in uiContents)

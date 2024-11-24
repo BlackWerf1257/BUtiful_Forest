@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class AREffect : MonoBehaviour
@@ -32,14 +33,33 @@ public class AREffect : MonoBehaviour
             {
                 case 0:
                 {
-                    newCharacter.transform.localScale = Vector3.one * 12000;
-                    newCharacter.transform.localPosition = new Vector3(800, -300, 2000);
+                    if (SceneManager.GetActiveScene().name == "Main_Gallery")
+                    {
+                        newCharacter.transform.localScale = Vector3.one * 1200;
+                        newCharacter.transform.localPosition = new Vector3(0, -20, 0);
+                        newCharacter.transform.rotation = Quaternion.Euler(0, -60, 0);
+                        
+                    }
+                    else
+                    {
+                        newCharacter.transform.localScale = Vector3.one;
+                        newCharacter.transform.localPosition = new Vector3(0, -300, 0);
+                    }
                 }  break;
                 case 1:
                 {
-                    newCharacter.transform.localScale = Vector3.one * 400;
-                    newCharacter.transform.localPosition = new Vector3(800, 400, 2000);
-                    
+                    if (SceneManager.GetActiveScene().name == "Main_Gallery")
+                    {
+                        newCharacter.transform.localScale = Vector3.one * 40;
+                        newCharacter.transform.rotation = Quaternion.Euler(0, -120, 0);
+                        newCharacter.transform.localPosition = new Vector3(0, 20, 0);
+                    }
+                    else
+                    {
+                        newCharacter.transform.localScale = Vector3.one * 10;
+                        newCharacter.transform.localPosition = new Vector3(0, 400, 0);
+                    }
+
                 } break;
             }
         }
