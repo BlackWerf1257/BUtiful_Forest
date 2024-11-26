@@ -11,6 +11,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] RectTransform[] uiContents;
     [SerializeField] CanvasScaler canvasScaler;
 
+    [Header("저장 UI")] [SerializeField] private RectTransform SaveUI;
+    
+
 
 
     // Start is called before the first frame update
@@ -55,15 +58,12 @@ public class UIManager : MonoBehaviour
         else
             eventListObj.DOLocalMoveY(-500, .5f).OnComplete(() => startEventBtn.DOLocalMoveY(0, .5f));
     }
-    
+
     public void EnterEvent(int index)
     {
         movedObjIdx = index;
         eventListObj.DOLocalMoveY(-500, .5f).OnComplete(() => eventRect[index].DOLocalMoveY(0, .5f));
-        ;
     }
-    #endregion
-
     public void BackToMain(bool isMain)
     {
         if(isMain)
@@ -71,4 +71,8 @@ public class UIManager : MonoBehaviour
         else
             eventRect[movedObjIdx].DOLocalMoveY(-500f, .5f).OnComplete(() => eventListObj.DOLocalMoveY(0, .5f));
     }
+
+    public void SaveEvent(bool isOn) => SaveUI.gameObject.SetActive(isOn);
+
+    #endregion
 }

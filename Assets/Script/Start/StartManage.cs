@@ -43,7 +43,7 @@ public class StartManage : MonoBehaviour
         NativeGallery.GetImageFromGallery(file =>
         {
             if (string.IsNullOrEmpty(file))
-            {
+            {                                                                        
                 Debug.LogWarning("파일을 선택하지 않았습니다.");
                 return;
             }
