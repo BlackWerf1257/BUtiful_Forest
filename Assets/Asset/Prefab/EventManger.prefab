@@ -106,3 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rawImg: {fileID: 0}
+  rendCamIdx: 2
+  rendCam: {fileID: 0}
+  canvas: {fileID: 0}
+  mask: {fileID: 0}
