@@ -11,7 +11,7 @@ public class ImageManager : MonoBehaviour
     ResourceManage resourceManager;
     
     [SerializeField] private int rendCamIdx = 2;
-    [SerializeField] private Camera rendCam;
+    [SerializeField] private Camera mainCam, rendCam;
     [SerializeField] private Canvas canvas;
     [SerializeField] Mask mask;
 
@@ -80,7 +80,7 @@ public class ImageManager : MonoBehaviour
         switch (typeIdx)
         {
             case 0: { } break; //GIF
-            case 1:  break; //PNG
+            case 1:  StartSave(true); break; //PNG
             case 2: { } break; //QR
         }
     }
@@ -92,12 +92,16 @@ public class ImageManager : MonoBehaviour
         if (isStartRend)
         {
             canvas.worldCamera = rendCam;
+            rendCam.enabled = true;
+            mainCam.enabled = false;
             
         }
         else
         {
             img.rectTransform.sizeDelta = originImgSize;
-            canvas.worldCamera = Camera.main;
+            canvas.worldCamera = mainCam;
+            rendCam.enabled = false;
+            mainCam.enabled = true;
         }
     }
 
@@ -105,7 +109,7 @@ public class ImageManager : MonoBehaviour
     {
         if (isStart)
         {
-            rendCam.gameObject.SetActive(true);
+            RenderCamera(true);
             StartCoroutine(TakeScreenshotAndSave());
         }
         else
@@ -123,10 +127,10 @@ public class ImageManager : MonoBehaviour
         ss.Apply();
 
         // Save the screenshot to Gallery/Photos
-        NativeGallery.Permission permission = NativeGallery.SaveImageToGallery( ss, DateTime.Today + " BUtiful Forest", "BUtiful Forest", ( success, path ) => Debug.Log( "Media save result: " + success + " " + path ) );
+        NativeGallery.Permission permission = NativeGallery.SaveImageToGallery( ss, "BUtiful Forest", DateTime.Today + " BUtiful Forest", ( success, path ) => Debug.Log( "Media save result: " + success + " " + path ) );
 
         Debug.Log( "Permission result: " + permission );
-        RenderCamera(Camera.main);
+        RenderCamera(false);
         // To avoid memory leaks
         Destroy( ss );
     }

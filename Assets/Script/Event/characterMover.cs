@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cysharp.Threading;
 using Cysharp.Threading.Tasks;
+using UnityEngine.SceneManagement;
 
 public class characterMover : MonoBehaviour
 {
@@ -12,7 +13,9 @@ public class characterMover : MonoBehaviour
     {
         baseTrans = this.GetComponent<Transform>();
         BaseRotate().Forget();
-        transform.parent = GameObject.Find("VideoBackground").transform;
+        
+        if(SceneManager.GetActiveScene().name == "Main_Cam")
+            transform.parent = GameObject.Find("VideoBackground").transform;
     }
 
     async UniTask BaseRotate()

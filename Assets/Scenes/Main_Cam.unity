@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028326, g: 0.22571333, b: 0.30692202, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -245,6 +245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rawImg: {fileID: 0}
   rendCamIdx: 2
+  mainCam: {fileID: 50424916}
   rendCam: {fileID: 1519377952}
   canvas: {fileID: 9039605724407329440}
   mask: {fileID: 0}
@@ -1036,22 +1037,22 @@ PrefabInstance:
     - target: {fileID: 29670363290488603, guid: 8fd28a8f346fe064f833ee03264cf4ac,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 29670363290488603, guid: 8fd28a8f346fe064f833ee03264cf4ac,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 29670363290488603, guid: 8fd28a8f346fe064f833ee03264cf4ac,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 440
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 29670363290488603, guid: 8fd28a8f346fe064f833ee03264cf4ac,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -175
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 98266763396013820, guid: 8fd28a8f346fe064f833ee03264cf4ac,
         type: 3}
@@ -1131,22 +1132,22 @@ PrefabInstance:
     - target: {fileID: 1027726609471109735, guid: 8fd28a8f346fe064f833ee03264cf4ac,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1027726609471109735, guid: 8fd28a8f346fe064f833ee03264cf4ac,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1027726609471109735, guid: 8fd28a8f346fe064f833ee03264cf4ac,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 965
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1027726609471109735, guid: 8fd28a8f346fe064f833ee03264cf4ac,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -175
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1048759774128760674, guid: 8fd28a8f346fe064f833ee03264cf4ac,
         type: 3}

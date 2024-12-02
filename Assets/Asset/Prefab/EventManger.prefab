@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 2641857619534850079}
   - component: {fileID: 1205263182972633492}
   - component: {fileID: 4841276005532117706}
-  - component: {fileID: 2744974480199352969}
-  - component: {fileID: 3966916981631104683}
+  - component: {fileID: 3644822743941880130}
   m_Layer: 0
   m_Name: EventManger
   m_TagString: Untagged
@@ -52,6 +51,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   canvasScaler: {fileID: 0}
+  SaveUI: {fileID: 0}
   startEventBtn: {fileID: 0}
   eventListObj: {fileID: 0}
   eventRect:
@@ -81,19 +81,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
---- !u!114 &2744974480199352969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9075410247351084974}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f3d1ada384bc4240bb784768e5a9e97, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3966916981631104683
+--- !u!114 &3644822743941880130
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,3 +98,4 @@ MonoBehaviour:
   rendCam: {fileID: 0}
   canvas: {fileID: 0}
   mask: {fileID: 0}
+  img: {fileID: 0}
