@@ -3,7 +3,12 @@ guid: 45b29edae3a912f44a4af72121cd4435
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Birdie_Varsity_Star_1117123135
+    second: {fileID: 2100000, guid: 3e5679462f1d5e343913413c6c9a74fe, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -16,8 +21,7 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
-      human bone 'Hips' not found\n"
+    rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
