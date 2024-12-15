@@ -22,8 +22,17 @@ public class IntroManage : MonoBehaviour
     }
     private void Awake()
     {
-        background.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, Screen.currentResolution.height);
-        background.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, Screen.currentResolution.width);
+        if (Application.isEditor)
+        {
+            background.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 1920);
+            background.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 1080);
+        }
+        else
+        {
+            background.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, Screen.currentResolution.height);
+            background.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, Screen.currentResolution.width);
+        }
+
     }
 
     private void ApplyFade()

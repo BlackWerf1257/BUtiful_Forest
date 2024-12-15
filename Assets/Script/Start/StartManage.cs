@@ -40,10 +40,12 @@ public class StartManage : MonoBehaviour
     #region Gallery
     void LoadFile()
     {
+        DontDestroyOnLoad(ResourceManage.gameObject);
+        
         NativeGallery.GetImageFromGallery(file =>
         {
             if (string.IsNullOrEmpty(file))
-            {
+            {                                                                        
                 Debug.LogWarning("파일을 선택하지 않았습니다.");
                 return;
             }
@@ -63,7 +65,6 @@ public class StartManage : MonoBehaviour
                 Debug.LogWarning("10mb 이하 사진으로 선택해주세요");
             }
         });
-
     }
     #endregion
 }

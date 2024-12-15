@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: VuforiaConfiguration
   m_EditorClassIdentifier: 
   vuforia:
-    vuforiaLicenseKey: AQ2mtzj/////AAABmSwjP8sDP0del9scTEgUAZ072h5oICEr0l83j7a3udAtWugcpcPWZYFNtDqaeQFVQVeI80+6lMORYEZUeJrbMGs7n4KkQJL1j/q12jJniX8LzuBvabE1Y5THK/KkvlMKMeD60rWzuJDKslS7L+elVynLaBiAKuzc2eVCWS92nrk9IJHgkYAh4wo2amTcLswjUskS6/fMfGcaiA0AMfqtw0FzJBlsrADeO2RYDgHPGiNlkLUEDNcKNDln2hfJfeG6W6GzKNlWWoRYq5eSKBy93FwoauGrBvqjImJIQxSweJB3cYu2GfywlKjB6y+++C34wuR1oFcvmyz/RxK8yOwlWCr1my9URASAs8HQHxdEyqlP
-    ufoLicenseKey: QWNCVWkzUC8vLy8vQUFBQUtMTW9NeW9mUmtGNW5nOXBxeEEwcTVOQVFGeGxzN3N0T3ZhTWozNjBZV21XbDh6ZEt1Vng0VTJVa0p6c2lrQkR6UnNRVEg2NGRFUWkzVW9sOTZ4RnFsaWQwZWlRNXUrVzZsUjQ4cmxEYm5OTzhyNU54SHZDMHUrVWx2TWJwQUg1cEtyRTdabWgxc1RhWDdLY1FqT0RWNVVPV2RVWVBMOThmNFNlOGVubnJlY1BodU1jZ2J5d2xrNXc2Yi9CdmRERnRTQ1cyYU11LzVOTFBxTFVMdzNYalRkbTVqcUhVbDNBM2swSUYwMVQvcWlQaWhtVExsNEV0NVNrVFlYL1BnWUlOUDR6Ym1DK20xWlpuMUlmSHFoby9NdEMrOE1Vc2NTditwUThNMSt4djd6b2ZTQlc2Qm0wM3d3ZXdRVDV4VjZQT1poNVJZYmxDWjdKblpEMUhpUCtzWGxKMjRwNkVBNVBweThrQjFXbittUTc=
-    delayedInitialization: 1
+    vuforiaLicenseKey: ATez55D/////AAABmSrB9HaGRUsmiRGzUx3Tae1k8m6h2gXmFwLMnBcS4+XfKFAem7tayA2Js9ycBXHP5hEqPSN5PTiuEz8RzSvXrfR62jo8KDKp+HIy613Nagt1fmcw9POGesIt61g8SDQHGz731zHkXBBo/cTtDlusMlI17/g8M7RC2q+FVMdnE9+WOoSpWWgRq6hliGk4dIn/Wb/BePL4jzt+mhM7/mGEjyyblzgU/sNcP5yVGDVxUxEQoKUpAvTop14nFBGzirgB6S8F0Bs2e07MObx3+2gYNsN3z9DNb6fHtNYW5Sgp3vyPw08LSYHTcH2viVtEVhRSETMd1Nra+2i16b/4djZ5prcszHrttmH/VW2RYDX2zwsM
+    ufoLicenseKey: QVVMTFFFYi8vLy8vQUFBQUtHNHFRakRqR2tiU21NalZYSmd2RVVDYU9xRk1uZE1iZTZyMGpaV2FsR1pRaGwvREdpMWJhTHZZZGZjRWFIQVRNaTRaK0E4UllvRENUdEZNUnNXZGFYYXVHTU5mWEtXUjUxd01UK0o1VVYvOVdHbkloUDlKRGMwNndNQXQrK2ErWlFSY0I1d04vazkxRE5VblFZTmYxMVlyOGdpU0VlTWNiNnJ5V2QzbTNOdWZiWVIzbHJYYmFBL2VWVXhzekRCK0NuY3VDRHhtVFlTWkhOVFBPTDBaUFhnRkRSSklHM0ZBVVRIV055eHpEVHdoa2E1WFk0UVFQTnZsc1pubG9EODNhckxGSjVaYkFRNWN2WHNidGQ4bmRuN2xiSVM2M01qckpxbXg5cUdsYzNQcnJSeUYrWE9mQWY1UGxsTUV1MzE2MU5pMEdnb0Z3RjZrY25yRGNISG11d0NtbEF2WDZsSGsyOEFnR3JObUxTMnk=
+    delayedInitialization: 0
     cameraFocusModeSetting: 2
     cameraDeviceModeSetting: -1
     maxSimultaneousImageTargets: 1
@@ -24,7 +24,7 @@ MonoBehaviour:
     shareRecordingsInITunes: 0
     logLevel: 0
     version: 10.27.3
-    eulaAcceptedVersions: '{"Values":["0.0","10.25","10.27"]}'
+    eulaAcceptedVersions: '{"Values":["","0.0","10.25","10.27"]}'
   database:
     disableModelExtraction: 0
   shaders:
